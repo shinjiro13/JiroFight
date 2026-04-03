@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEU Jungle Rumble</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-over-overlay">
+        <div id="menu-card">
+            <h1 id="ko-text">K.O.</h1>
+            <h2 id="winner-text">PLAYER 1 WINS</h2>
+            <button id="rematch-btn" onclick="resetGame()">REMATCH</button>
+        </div>
+    </div>
+
+    <div id="ui-container">
+        <div class="health-box"><div id="p1-health" class="health-fill"></div></div>
+        <div class="health-box"><div id="p2-health" class="health-fill"></div></div>
+    </div>
+
+    <div id="game-stage">
+        <div id="player1"></div>
+        <div id="player2"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
