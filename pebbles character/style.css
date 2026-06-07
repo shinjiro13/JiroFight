@@ -13,15 +13,49 @@ body {
     width: 90%;
     left: 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     z-index: 100;
 }
 
+.player-panel {
+    width: 520px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.player-label {
+    display: inline-block;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.08));
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.12);
+}
+
 .health-box {
-    width: 40%;
-    height: 30px;
-    background-color: #333;
+    width: 100%;
+    height: 42px;
+    background-color: #111;
     border: 3px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.health-fill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ff00 0%, #00cc00 60%, #009900 100%);
+    transition: width 0.1s;
 }
 
 .health-fill {
@@ -34,25 +68,40 @@ body {
 #game-stage {
     width: 100vw;
     height: 100vh;
-    background-image: url('background.png');
+    background-image: url('senate_bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
 }
 
-#player1, #player2 {
-    width: 400px;
-    height: 400px;
+#player1 {
+    width: 64px;
+    height: 100px;
     position: absolute;
-    bottom: 30px;
-    background-size: 1600px 400px; 
+    left: 50px;
+    bottom: 40px;
+    background-image: url('pebbles_right.png');
+    background-size: 640px 100px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
     image-rendering: pixelated;
-    transition: bottom 0.3s ease-out;
+    transform-origin: bottom left;
+    transform: scale(3);
+    transition: transform 0.1s ease;
 }
 
-#player1 { left: 50px; background-image: url('player1_spritesheet.png'); }
-#player2 { right: 50px; background-image: url('player2_spritesheet.png'); }
+#player1.running {
+    transform: scale(3.03);
+}
+
+#player1.attack {
+    transform: translateY(-10px) scale(3.06);
+}
+
+#player1.crouch {
+    transform: translateY(12px) scale(3);
+}
 
 /* CENTERING THE KO MENU */
 #game-over-overlay {
